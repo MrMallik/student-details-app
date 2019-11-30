@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+    <style>
+        body{
+            background-image: url("{% static 'main/delete.jpg' %}");
+            background-size: cover;
+        }
+    </style>
+    <div class="content-section">
+        <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Student Delete Form</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-danger" type="submit">Submit</button>
+        </div>
+        </form>
+    </div>
+{% endblock content %}
